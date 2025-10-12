@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniSchedule — בונה מערכת שעות</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <video id="background-video" autoplay loop muted playsinline>
+      <source src="https://template.canva.com/EAFB2v1Ajn8/1/document_1440w-e0B3AyHtZqU.mp4" type="video/mp4">
+    </video>
+    <div class="header">📅 UniSchedule — בונה מערכת שעות</div>
+    <div class="project-desc" style="max-width:900px;margin:24px auto 0 auto;padding:18px 24px 12px 24px;background:rgba(255,255,255,0.85);border-radius:18px;box-shadow:0 2px 12px #e0e7eb33;font-size:1.13em;line-height:1.7;text-align:right;direction:rtl;">
+      ברוכים הבאים ל-UniSchedule — כלי אינטראקטיבי לבניית מערכת שעות אקדמית!<br>
+      הכניסו את כל הקורסים שתרצו לשבץ במערכת: לכל קורס מלאו את שם הקורס, סוג (הרצאה/תרגול), יום, שעת התחלה, שעת סיום ומיקום.<br>
+      בחרו עבור כל קורס אם הוא הרצאה או תרגול (או שניהם, אם יש), והמערכת תבנה עבורכם את כל האפשרויות למערכת שעות תקינה — ללא חפיפות, בהתאמה להעדפותיכם.
+    </div>
+    <div class="container">
+      <section class="card">
+
+  <h2>קלט קורסים</h2>
+        <div class="input-table-card">
+          <div id="input-table"></div>
+        </div>
+
+        <div class="grid">
+          <label><span class="icon">⏰</span>שעת התחלה מועדפת: <input id="earliest" type="number" min="0" max="23" value="9"></label>
+          <label><span class="icon">⏰</span>שעת סיום מועדפת: <input id="latest" type="number" min="0" max="23" value="18"></label>
+          <label><span class="icon">#️⃣</span>Top-N: <input id="limit" type="number" min="1" max="50" value="10"></label>
+        </div>
+
+        <button id="generate">צרי מערכות שעות</button>
+        <p id="error" class="error"></p>
+      </section>
+
+      <section id="results"></section>
+    </div>
+    <script src="./src/app.js"></script>
+    <footer class="sticky-footer">
+      <span>© 2025 UniSchedule | כל הזכויות שמורות</span>
+    </footer>
+  </body>
+</html>
