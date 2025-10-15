@@ -1,33 +1,38 @@
-# UniSchedule — Planner (Full-Stack Skeleton)
+# 🗓️ UniSchedule — Planner (Full-Stack Skeleton)
 
-חלוקה ברורה ל-**frontend** ו-**backend**, והפרדת לוגיקה ל-**core** (דומיין) ו-**routers/services** (API).
+A minimal yet structured **full-stack project** for generating optimal university schedules from CSV input.  
+The project features a clear separation between **frontend** and **backend**, with domain logic isolated in **core**, and API routing in **routers/services**.
 
-## מבנה תיקיות
+---
+
+## 📁 Project Structure
 ```
 unischedule/
 ├─ backend/
 │  ├─ app/
-│  │  ├─ main.py                 # אפליקציית FastAPI + CORS + רישום ראוטרים
+│  │  ├─ main.py                 # FastAPI app + CORS + router registration
 │  │  ├─ routers/
 │  │  │  └─ schedules.py         # REST endpoint: POST /api/schedules/generate
-│  │  ├─ core/                   # לוגיקה "טהורה" של הדומיין
-│  │  │  ├─ models.py            # מודלים (Block)
-│  │  │  └─ scheduler.py         # פרסינג CSV, בדיקת חפיפות, יצירת מערכות, דירוג
+│  │  ├─ core/                   # Pure domain logic
+│  │  │  ├─ models.py            # Models (Block, etc.)
+│  │  │  └─ scheduler.py         # CSV parsing, conflict checks, schedule generation & ranking
 │  │  └─ services/
-│  │     └─ schedule_service.py  # שכבת שירות (עתידית) לארגון הזרימה
+│  │     └─ schedule_service.py  # (Future) service layer for orchestrating logic
 │  ├─ tests/
 │  │  └─ test_scheduler.py
 │  ├─ requirements.txt
 │  └─ README.md
 └─ frontend/
-   ├─ index.html                 # דף סטטי עם טופס קלט + תוצאות
-   ├─ styles.css                 # עיצוב פשוט
+   ├─ index.html                 # Static page with input form and results display
+   ├─ styles.css                 # Basic styling
    ├─ src/
-   │  └─ app.js                  # קריאה ל-API והצגת התוצאות
+   │  └─ app.js                  # Calls the API and renders the results
    └─ README.md
 ```
 
-## איך מריצים
+---
+
+## 🚀 How to Run
 
 ### Backend
 ```bash
@@ -37,10 +42,12 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 ### Frontend
-פתח/י את `frontend/index.html` עם Live Server (או כל שרת סטטי).  
-ברירת המחדל של ה-API היא `http://localhost:8000` (ניתן לשנות ב-`app.js`).
+Open `frontend/index.html` using **Live Server** or any static file server.  
+Default API endpoint: `http://localhost:8000` (can be changed in `src/app.js`).
 
-## פורמט קלט לדוגמה (CSV)
+---
+
+## 🧾 Example Input (CSV)
 ```
 Course,Section,Day,Start,End,Location
 Algorithms,A1,Sun,10:00,12:00,Building A 101
@@ -55,13 +62,17 @@ Linear Algebra,L2,Tue,11:00,13:00,Room 15
 Linear Algebra,L2,Thu,11:00,13:00,Room 15
 ```
 
-## הערות ארכיטקטורה
-- **הפרדת לוגיקה**: הקבצים ב-`core/` נקיים מתלות ב-HTTP. קל לבדוק אותם ולמחזר בעתיד (גם CLI, גם REST).
-- **routers**: אחראים על ולידציה של קלט/פלט והפעלת הליבה.
-- **services**: שכבה אופציונלית לעתיד (אינטגרציות, cache, DB).
+---
 
-## צעדי המשך
-- הוספת סינון קשיח (למשל, "בלי ימי ו'").
-- ייצוא `.ics` לכל פתרון.
-- שמירת משתמשים/מערכות ב-DB (SQLite + SQLModel).
-- UI מתקדם (React/Vite או Streamlit) ותצוגת טיימליין.
+## 🧠 Architecture Notes
+- **Core logic isolation** – The logic in `core/` is framework-independent (pure Python), making it easy to test and reuse (CLI, REST, etc.).  
+- **Routers** – Handle HTTP input/output validation and trigger the core logic.  
+- **Services** – Optional abstraction layer for future integrations, caching, or database operations.
+
+---
+
+## 🧩 Next Steps
+- Add strict filtering (e.g., “exclude Fridays”).  
+- Export each generated schedule as a `.ics` calendar file.  
+- Save users and generated schedules in a DB (SQLite + SQLModel).  
+- Build an advanced UI (React/Vite or Streamlit) with a visual timeline display.
