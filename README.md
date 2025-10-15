@@ -1,11 +1,11 @@
-# 🗓️ UniSchedule — Planner (Full-Stack Skeleton)
+# UniSchedule — Planner (Full-Stack Skeleton)
 
 A minimal yet structured **full-stack project** for generating optimal university schedules from CSV input.  
 The project features a clear separation between **frontend** and **backend**, with domain logic isolated in **core**, and API routing in **routers/services**.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 ```
 unischedule/
 ├─ backend/
@@ -32,7 +32,7 @@ unischedule/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Backend
 ```bash
@@ -47,7 +47,7 @@ Default API endpoint: `http://localhost:8000` (can be changed in `src/app.js`).
 
 ---
 
-## 🧾 Example Input (CSV)
+## Example Input (CSV)
 ```
 Course,Section,Day,Start,End,Location
 Algorithms,A1,Sun,10:00,12:00,Building A 101
@@ -64,14 +64,14 @@ Linear Algebra,L2,Thu,11:00,13:00,Room 15
 
 ---
 
-## 🧠 Architecture Notes
+##  Architecture Notes
 - **Core logic isolation** – The logic in `core/` is framework-independent (pure Python), making it easy to test and reuse (CLI, REST, etc.).  
 - **Routers** – Handle HTTP input/output validation and trigger the core logic.  
 - **Services** – Optional abstraction layer for future integrations, caching, or database operations.
 
 ---
 
-## 🧩 Next Steps
+##  Next Steps
 - Add strict filtering (e.g., “exclude Fridays”).  
 - Export each generated schedule as a `.ics` calendar file.  
 - Save users and generated schedules in a DB (SQLite + SQLModel).  
